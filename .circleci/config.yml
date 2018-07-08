@@ -1,0 +1,57 @@
+version: 2
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+  - image: circleci/node:8.9.1
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+    - checkout
+
+    - restore_cache:
+        key: ng-json-schema-form-{{ .Branch }}-{{ checksum "package.json" }}
+
+    - run:  npm install
+
+    - run:
+        name: build-library
+        command: npm run build
+
+    - save_cache:
+        key: ng-json-schema-form-{{ .Branch }}-{{ checksum "package.json" }}
+        paths:
+        - "node_modules"
+
+    - persist_to_workspace:
+        root: ~/repo/dist/ng-json-schema-form
+        paths: .
+  deploy:
+    <<: *defaults
+    steps:
+    - attach_workspace:
+        at: ~/repo/dist/ng-json-schema-form
+    - run:
+        name: Authenticate with registry
+        command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/dist/ng-json-schema-form/.npmrc
+    - run:
+        name: Publish package
+        command: cd ~/repo/dist/ng-json-schema-form && npm publish --access public
+
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+    - build:
+        filters:
+          branches:
+            only: master
+    - deploy:
+        requires:
+        - build
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore: /.*/

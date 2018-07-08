@@ -1,6 +1,5 @@
 import {AtomicWidgetContext} from './atomic.widget.context';
 import {FormControl} from '@angular/forms';
-import {Injectable} from '@angular/core';
 
 export class StringWidgetContext extends AtomicWidgetContext<string> {
   private ctrl: FormControl;

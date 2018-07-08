@@ -9,7 +9,7 @@ import {StringWidgetContext} from '../context/string.widget.context';
                     [hidden]="widgetContext.hidden"
                     *ngIf="widgetContext.ready">
       <input matInput
-             [attr.disabled]="widgetContext.schema.readOnly ? true : null"
+             [attr.disabled]="widgetContext.schema.options?.readOnly ? true : null"
              [attr.maxLength]="widgetContext.schema.maxLength || null"
              [attr.minLength]="widgetContext.schema.minLength || null"
              [attr.min]="widgetContext.schema.minimum || null"

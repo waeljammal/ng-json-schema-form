@@ -1,20 +1,30 @@
 {
-  "name": "@rs/ng6-json-schema-form",
-  "version": "0.0.1",
+  "name": "@robotandspark/ng-json-schema-form",
+  "version": "0.9.7",
   "peerDependencies": {
     "@angular/animations": "^6.0.7",
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/cdk": "^6.3.2",
     "@angular/material": "^6.3.2",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "ajv": "^6.5.2",
-    "ng2-validators": "^2.2.0",
-    "json-schema-ref-parser": "^5.0.3",
-    "schemasaurus": "^0.7.8",
-    "moment": "^2.22.2",
     "core-js": "^2.4.1"
   },
   "dependencies": {
+    "moment": "^2.22.2",
+    "ajv": "^6.5.2",
+    "ng2-validators": "^2.2.0",
+    "schemasaurus": "^0.7.8",
     "json-schema-ref-parser": "^5.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waeljammal/ng-json-schema-form.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/waeljammal/ng-json-schema-form/issues"
+  },
+  "description": "Angular 6+ JSON Schema Forms",
+  "keywords": ["Angular 6 Json Forms", "NG6 Form", "JSON Schema Form"],
+  "license": "Apache-2.0",
+  "readme": "README.md"
 }
