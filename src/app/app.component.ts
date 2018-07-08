@@ -217,4 +217,8 @@ export class AppComponent {
     //   };
     // }, 4000);
   }
+
+  public onModelChanged(event: any) {
+
+  }
 }

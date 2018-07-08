@@ -1,10 +1,15 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ng6-json-schema-form",
+  "dest": "../../dist/ng-json-schema-form",
   "lib": {
     "entryFile": "src/public_api.ts"
   },
   "whitelistedNonPeerDependencies": [
-    "json-schema-ref-parser"
+    "json-schema-ref-parser",
+    "ajv",
+    "ng2-validators",
+    "schemasaurus",
+    "json-schema-ref-parser",
+    "moment"
   ]
 }

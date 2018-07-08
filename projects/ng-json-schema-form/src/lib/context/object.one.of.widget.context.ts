@@ -1,7 +1,6 @@
 import {WidgetContext} from '../core/widget.context';
 import {FormControl} from '@angular/forms';
 import {SchemaParser} from '../core/schema.parser';
-import {Injectable} from '@angular/core';
 
 export class ObjectOneOfWidgetContext extends WidgetContext<any> {
   public typeCtrl: FormControl;
