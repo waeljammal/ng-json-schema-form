@@ -1,0 +1,50 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+
+[hidden] {
+  display: none !important;
+}
+
+ng-json-editor {
+  overflow-y: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  .widget-section {
+    width: 100%;
+  }
+
+  fieldset {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    border: dashed 1px gray;
+  }
+
+  .mat-select-trigger {
+    margin: 0 !important;
+    height: 17px !important;
+  }
+
+  input.mat-input-element {
+    height: 16px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.json-editor-pad-bottom {
+  form {
+    margin-bottom: 5px !important;
+  }
+}

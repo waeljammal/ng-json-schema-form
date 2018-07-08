@@ -1,0 +1,29 @@
+:host {
+  display: block;
+
+  .actions {
+    height: 37px;
+    padding-top: 10px;
+    padding-right: 2px;
+
+    button {
+      float: right;
+    }
+  }
+
+  .array-item {
+    &:not(:first-child) { margin-top: 10px !important; }
+
+    label {
+      font-size: 14px;
+    }
+
+    .delete {
+      position: relative;
+      right: -31px;
+      bottom: 36px;
+      float: right;
+      height: 0;
+    }
+  }
+}
