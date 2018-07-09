@@ -94,10 +94,12 @@ export class AppComponent {
           },
           'password2': {
             'title': 'Password 2',
-            'type': 'string',
-            'default': ''
+            'type': 'string'
           }
-        }
+        },
+        'required': [
+          'password2'
+        ]
       },
       'credentials': {
         'title': 'Key Info',
@@ -219,6 +221,6 @@ export class AppComponent {
   }
 
   public onModelChanged(event: any) {
-
+    console.log(event);
   }
 }

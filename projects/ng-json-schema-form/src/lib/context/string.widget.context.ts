@@ -6,7 +6,7 @@ export class StringWidgetContext extends AtomicWidgetContext<string> {
 
   public initialize(): Promise<boolean> {
     return new Promise((resolve) => {
-      this.ctrl = this.state.fb.control(this.model || '', this.getValidators());
+      this.ctrl = this.state.fb.control(this.model, this.getValidators());
       const controls = {};
       controls[this.groupId] = this.ctrl;
       this.createFormGroup(controls);
@@ -15,6 +15,6 @@ export class StringWidgetContext extends AtomicWidgetContext<string> {
   }
 
   updateModel(model: any) {
-    this.ctrl.setValue(model || '');
+    this.ctrl.setValue(model);
   }
 }
