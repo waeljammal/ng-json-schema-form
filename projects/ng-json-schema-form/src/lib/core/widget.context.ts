@@ -46,6 +46,10 @@ export abstract class WidgetContext<MT> extends Context<MT> {
       value = true;
     }
 
+    if (this.parent && this.parent.schema.required && this.parent.schema.required.indexOf(this.groupId) > -1) {
+      value = true;
+    }
+
     return value;
   }
 

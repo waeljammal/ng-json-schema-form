@@ -60,7 +60,7 @@ export class NgJsonEditorComponent implements OnChanges {
             this.state.currentModel = v;
             Object.assign(this.model, v);
             if (this.state.emitChangeEvent) {
-              const valid = this.validator.validate(this.schema, this.state.currentModel);
+              const valid = this.validator.validate(this.schema, this.state.currentModel) && this.state.rootContext.formGroup.valid;
               const errors = this.validator.validationErrors(this.schema, this.state.currentModel);
               this.onChange.emit({value: this.state.currentModel, errors: errors, valid: valid});
             }
