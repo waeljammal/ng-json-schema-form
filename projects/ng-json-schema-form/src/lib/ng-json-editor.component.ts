@@ -26,7 +26,7 @@ export class NgJsonEditorComponent implements OnChanges {
   public model: any = {};
 
   @Output()
-  public onChange = new EventEmitter<{ value: any, errors: any[], valid: boolean }>();
+  public onChange = new EventEmitter<{ value: any, errors: any[], valid: boolean, formValid: boolean, schemaValid: boolean }>();
 
   public context: Context<any>;
 
@@ -60,9 +60,17 @@ export class NgJsonEditorComponent implements OnChanges {
             this.state.currentModel = v;
             Object.assign(this.model, v);
             if (this.state.emitChangeEvent) {
-              const valid = this.validator.validate(this.schema, this.state.currentModel) && this.state.rootContext.formGroup.valid;
+              const schemaValid = this.validator.validate(this.schema, this.state.currentModel);
+              const formValid = this.state.rootContext.formGroup.valid;
+              const valid = schemaValid && formValid;
               const errors = this.validator.validationErrors(this.schema, this.state.currentModel);
-              this.onChange.emit({value: this.state.currentModel, errors: errors, valid: valid});
+              this.onChange.emit({
+                value: this.state.currentModel,
+                errors: errors,
+                valid: valid,
+                formValid: formValid,
+                schemaValid: schemaValid
+              });
             }
           });
         })
