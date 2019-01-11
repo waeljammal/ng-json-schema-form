@@ -17,8 +17,7 @@ export class ArrayWidgetContext extends WidgetContext<Array<any>> {
       }
 
       // Otherwise create a group for this object
-      const controls = [];
-      this.createFormArray(controls);
+      this.createFormArray([]);
       resolve(true);
     });
   }
