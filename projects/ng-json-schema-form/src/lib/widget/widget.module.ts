@@ -21,7 +21,6 @@ import {WidgetBooleanComponent} from './widget.boolean.component';
 import {WidgetArrayComponent} from './widget.array.component';
 import {WidgetStringTextAreaComponent} from './widget.string.text.area.component';
 import {WidgetStringDatepickerComponent} from './widget.string.datepicker.component';
-import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule} from '@angular/material-moment-adapter';
 
 @NgModule({
   imports: [
@@ -34,8 +33,7 @@ import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule} from '@angular/mat
     MatSlideToggleModule,
     MatIconModule,
     MatButtonModule,
-    MatDatepickerModule,
-    MatMomentDateModule
+    MatDatepickerModule
   ],
   declarations: [
     JsonEditorFormElementChooserComponent,
@@ -74,8 +72,7 @@ import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule} from '@angular/mat
     WidgetStringDatepickerComponent
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'utc'},
-    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
+
   ]
 })
 export class WidgetModule {
