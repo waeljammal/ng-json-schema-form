@@ -1,5 +1,7 @@
 import {WidgetRegistry} from './widget.registry';
 import * as ajv from 'ajv';
+import {forwardRef, Inject} from '@angular/core';
+import {WIDGET_REGISTRY} from '../ng-json-editor-config';
 
 /**
  * Validates json data against a schema.
@@ -14,7 +16,7 @@ export class SchemaValidator {
    *
    * @param wr Widget registry
    */
-  constructor(private wr: WidgetRegistry) {
+  constructor(@Inject(forwardRef(() => WIDGET_REGISTRY)) private wr: WidgetRegistry) {
     this.validator = new ajv({
       allErrors: true,
       format: 'full',

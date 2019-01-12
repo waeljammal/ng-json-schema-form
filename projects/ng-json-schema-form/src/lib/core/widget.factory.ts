@@ -1,7 +1,8 @@
-import {ComponentFactoryResolver, ComponentRef, Injectable, ViewContainerRef} from '@angular/core';
+import {ComponentFactoryResolver, ComponentRef, forwardRef, Inject, Injectable, ViewContainerRef} from '@angular/core';
 import {WidgetRegistry} from './widget.registry';
 import {WidgetContext} from './widget.context';
 import {WidgetAbstractComponent} from './widget.abstract.component';
+import {WIDGET_REGISTRY} from '../ng-json-editor-config';
 
 /**
  * Factory creates new widget components using the registry to look them up by type.
@@ -10,7 +11,7 @@ import {WidgetAbstractComponent} from './widget.abstract.component';
  */
 @Injectable()
 export class WidgetFactory {
-  constructor(private registry: WidgetRegistry,
+  constructor(@Inject(forwardRef(() => WIDGET_REGISTRY)) private registry: WidgetRegistry,
               private resolver: ComponentFactoryResolver) {
 
   }

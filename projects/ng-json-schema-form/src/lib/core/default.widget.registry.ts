@@ -20,12 +20,14 @@ import {DateWidgetContext} from '../context/date.widget.context';
 import {ValidatorFn} from '@angular/forms/src/directives/validators';
 import {UniversalValidators} from 'ng2-validators';
 import {Validators} from '@angular/forms';
+import {Injectable} from '@angular/core';
 
 /**
  * Default widgets included with the editor.
  *
  * @author Wael Jammal
  */
+@Injectable()
 export class DefaultWidgetRegistry extends WidgetRegistry {
   /**
    * Build validator array for given schema and arguments.

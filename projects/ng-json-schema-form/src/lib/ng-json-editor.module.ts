@@ -2,10 +2,14 @@ import {NgModule} from '@angular/core';
 import {NgJsonEditorComponent} from './ng-json-editor.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {WidgetRegistry} from './core';
 import {DefaultWidgetRegistry} from './core';
 import {WidgetFactory} from './core/widget.factory';
 import {WidgetModule} from './widget/widget.module';
+import {WIDGET_REGISTRY} from './ng-json-editor-config';
+
+export function createDefaultRegistry() {
+  return new DefaultWidgetRegistry();
+}
 
 @NgModule({
   imports: [
@@ -22,8 +26,8 @@ import {WidgetModule} from './widget/widget.module';
     WidgetModule
   ],
   providers: [
-    {provide: WidgetRegistry, useClass: DefaultWidgetRegistry},
-    WidgetFactory
+    WidgetFactory,
+    {provide: WIDGET_REGISTRY, useFactory: createDefaultRegistry}
   ],
   entryComponents: [
     NgJsonEditorComponent

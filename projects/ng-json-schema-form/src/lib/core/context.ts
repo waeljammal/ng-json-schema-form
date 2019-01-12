@@ -77,9 +77,9 @@ export abstract class Context<MT> {
   }
 
   protected doInit(state: FormState,
-                root: WidgetContext<MT>,
-                schema: any,
-                type: string): void {
+                   root: WidgetContext<MT>,
+                   schema: any,
+                   type: string): void {
     this._schema = schema;
     this._type = type;
     this._root = root;

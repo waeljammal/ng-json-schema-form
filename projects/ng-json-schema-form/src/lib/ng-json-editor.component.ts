@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Injector, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Inject, Injector, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {Context} from './core/context';
 import {FormBuilder} from '@angular/forms';
 import {WidgetFactory} from './core/widget.factory';
@@ -6,6 +6,7 @@ import {WidgetRegistry} from './core';
 import {SchemaParser} from './core/schema.parser';
 import {SchemaValidator} from './core/schema.validator';
 import {FormState} from './core/form.state';
+import {WIDGET_REGISTRY} from './ng-json-editor-config';
 
 @Component({
   selector: 'ng-json-editor',
@@ -36,7 +37,7 @@ export class NgJsonEditorComponent implements OnChanges {
 
   constructor(private fb: FormBuilder,
               private wf: WidgetFactory,
-              private wr: WidgetRegistry,
+              @Inject(forwardRef(() => WIDGET_REGISTRY)) private wr: WidgetRegistry,
               private injector: Injector) {
     this.validator = new SchemaValidator(wr);
     this.state = new FormState(fb, wf, wr, this.validator, injector);

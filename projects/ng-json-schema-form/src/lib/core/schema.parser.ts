@@ -2,8 +2,6 @@ import * as ss from 'schemasaurus';
 import * as jsrp from 'json-schema-ref-parser/dist/ref-parser';
 import {WidgetContext} from './widget.context';
 import {FormState} from './form.state';
-import {Injector, ReflectiveInjector} from '@angular/core';
-import {Context} from './context';
 
 /**
  * Parses a json schema and generates a context tree.
